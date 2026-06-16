@@ -26,12 +26,11 @@ export const LoginService = {
             return ok({
                 token: generateJWT({
                     id: user.id,
-                    name: user.name,
+
                     email: user.email
                 }),
                 user: {
                     id: user.id,
-                    name: user.name,
                     email: user.email
                 }
             });

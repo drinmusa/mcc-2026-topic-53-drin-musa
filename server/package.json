@@ -5,7 +5,7 @@
     "main": "index.ts",
     "scripts": {
         "start": "nodemon",
-        "build": "tsc && cp -r src/utils/email/templates build/utils/email/templates",
+        "build": "tsc",
         "migrate": "ts-node ./migrations-runner.ts",
         "seed": "ts-node ./seeds-runner.ts",
         "serve": "node ./build/index.js"

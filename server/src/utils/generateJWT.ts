@@ -1,4 +1,4 @@
-import jwt, { Algorithm, JwtPayload } from 'jsonwebtoken';
+import jwt, { Algorithm, SignOptions } from 'jsonwebtoken';
 
 // configs
 import { JWT_ALGORITHM, JWT_EXPIRES_IN, JWT_SECRET } from '../config/jwt';
@@ -11,15 +11,17 @@ import { JWT_ALGORITHM, JWT_EXPIRES_IN, JWT_SECRET } from '../config/jwt';
  * @returns The signed JWT.
  */
 // export const generateJWT = (user: UserDBModel) => {
-export const generateJWT = (user: { id: number; name: string; email: string }) => {
+export const generateJWT = (user: { id: number; email: string }) => {
+    if (!JWT_SECRET) {
+        throw new Error('JWT_SECRET is not defined');
+    }
     const payload = {
         userId: user.id,
-        name: user.name,
         email: user.email
     };
 
     return jwt.sign(payload, JWT_SECRET, {
-        expiresIn: JWT_EXPIRES_IN,
+        expiresIn: JWT_EXPIRES_IN as SignOptions['expiresIn'],
         algorithm: JWT_ALGORITHM as Algorithm
     });
 };
