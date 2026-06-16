@@ -39,7 +39,7 @@ This repository contains a full-stack application with:
 ```bash
 git clone https://github.com/drinmusa/mcc-2026-topic-53-drin-musa.git
 
-cd mobile-photo-backup
+cd mcc-2026-topic-53-drin-musa
 
 Mobile Setup
 cd mobile
